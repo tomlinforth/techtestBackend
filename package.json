@@ -1,0 +1,32 @@
+{
+  "name": "techTestAPI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha spec",
+    "dev": "nodemon listen.js",
+    "setup-dbs": "psql -f db/setup.sql",
+    "make-migrate": "knex migrate:make",
+    "latest": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.1",
+    "pg": "^8.5.1",
+    "twilio": "^3.57.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.3",
+    "chai-sorted": "^0.2.0",
+    "chai-things": "^0.2.0",
+    "mocha": "^8.3.0",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
+  }
+}

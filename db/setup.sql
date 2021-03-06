@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS tech_api_test;
+DROP DATABASE IF EXISTS tech_api;
+
+CREATE DATABASE tech_api_test;
+CREATE DATABASE tech_api;
