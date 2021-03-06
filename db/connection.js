@@ -3,7 +3,7 @@ const knex = require("knex");
 
 const config =
   ENV === "production"
-    ? { client: "pg", connection:{ connectionString: process.env.DATABASE_URL, ssl:false} }
+    ? { client: "pg", connection:{ connectionString: process.env.DATABASE_URL, ssl:true} }
     : require("../knexfile");
 
 const connection = knex(config);
