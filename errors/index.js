@@ -1,6 +1,4 @@
 exports.psqlErr = (err, req, res, next) => {
-  console.log('uh oh')
-  console.log(err)
   if (err.code) {
     const errRef = {
       "22P02": { status: 400, msg: "Invalid data type (integer needed)." },
@@ -14,5 +12,5 @@ exports.psqlErr = (err, req, res, next) => {
 };
   
 exports.customErr = (err, req, res, next) => {
-  res.status(err.status || 404).send({ err });
+  res.status(err.status || 404).send(err.error);
 };
