@@ -14,8 +14,10 @@ exports.addNewMessage = (req, res, next) => {
 };
 
 exports.sendAllContacts = (req,res,next) => {
+    console.log("controller start")
     selectAllContacts()
         .then(contacts => {
+            console.log('controller end')
             res.status(200).send({contacts});
         })
         .catch(next);
