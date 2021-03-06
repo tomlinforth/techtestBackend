@@ -6,7 +6,7 @@ const config =
     ? { client: "pg", connection: process.env.DATABASE_URL }
     : require("../knexfile");
 
-console.log(config)
 const connection = knex(config);
-
+console.log(connection)
+    
 module.exports = connection;
