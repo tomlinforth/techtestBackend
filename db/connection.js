@@ -7,6 +7,5 @@ const config =
     : require("../knexfile");
 
 const connection = knex(config);
-console.log(connection)
     
 module.exports = connection;
