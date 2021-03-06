@@ -12,5 +12,5 @@ exports.psqlErr = (err, req, res, next) => {
   };
   
   exports.customErr = (err, req, res, next) => {
-    res.status(err.status || 404).send({ msg: err.msg });
+    res.status(err.status || 404).send({ msg: 'here is your error' });
   };
