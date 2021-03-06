@@ -18,4 +18,5 @@ apiRouter
 apiRouter
     .route('/messages/:contactNum')
     .get(sendMessagesByContactNum)
+    
 module.exports = apiRouter;
