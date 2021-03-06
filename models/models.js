@@ -25,7 +25,7 @@ exports.insertNewMessage = (newMessage) => {
 
 exports.selectAllContacts = () => {
     console.log('models working')
-    return connection("contact").select("*")
+    return connection("contacts").select("*")
 };
 
 exports.selectMessagesByContactNum = ({contactNum}) => {
