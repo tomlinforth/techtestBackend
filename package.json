@@ -10,7 +10,11 @@
     "make-migrate": "knex migrate:make",
     "latest": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
-    "seed": "knex seed:run"
+    "seed": "knex seed:run",
+    "seed:prod": "NODE_ENV=production DB_URL=$(heroku config:get DATABASE_URL) knex seed:run",
+    "migrate-latest:prod": "NODE_ENV=production DB_URL=$(heroku config:get DATABASE_URL) knex migrate:latest",
+    "migrate-rollback:prod": "NODE_ENV=production DB_URL=$(heroku config:get DATABASE_URL) knex migrate:rollback",
+    "start": "node listen.js"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +22,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "knex": "^0.95.1",
-    "pg": "^8.5.1",
+    "pg": "^7.4.3",
     "twilio": "^3.57.0"
   },
   "devDependencies": {
