@@ -2,7 +2,8 @@ const apiRouter = require('express').Router();
 const {
     addNewMessage,
     sendAllContacts,
-    sendMessagesByContactNum
+    sendMessagesByContactNum,
+    addNewContact
 } = require('../controllers/controllers')
 
 apiRouter
@@ -12,6 +13,7 @@ apiRouter
 apiRouter
     .route('/contacts')
     .get(sendAllContacts)
+    .post(addNewContact)
 
 apiRouter
     .route('/messages/:contactNum')

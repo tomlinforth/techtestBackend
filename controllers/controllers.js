@@ -1,7 +1,8 @@
 const {
     insertNewMessage,
     selectAllContacts,
-    selectMessagesByContactNum
+    selectMessagesByContactNum,
+    insertNewContact
 } = require('../models/models');
 
 exports.addNewMessage = (req, res, next) => {
@@ -24,6 +25,14 @@ exports.sendMessagesByContactNum = (req,res,next) => {
     selectMessagesByContactNum(req.params)
         .then(messages => {
             res.status(200).send({messages})
+        })
+        .catch(next)
+}
+
+exports.addNewContact = (req,res,next) => {
+    insertNewContact(req.body)
+        .then(([contact]) => {
+            res.status(201).send({contact})
         })
         .catch(next)
 }
