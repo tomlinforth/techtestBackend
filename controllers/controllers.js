@@ -6,7 +6,7 @@ const {
 } = require('../models/models');
 
 exports.addNewMessage = (req, res, next) => {
-    console.log(req.req)
+    console.log(req.body.Body)
     insertNewMessage(req.body)
         .then(([message]) => {
             res.status(201).send({ message });
