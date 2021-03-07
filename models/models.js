@@ -23,7 +23,6 @@ exports.insertNewMessage = (newMessage) => {
 }
 
 exports.selectAllContacts = () => {
-    console.log('models working')
     return connection("contacts").select("*")
 };
 
@@ -31,13 +30,14 @@ exports.selectMessagesByContactNum = ({contactNum}) => {
     const messageKeys = ["to","from","body","sent_at"]
     return connection('messages')
         .select(...messageKeys)
-        .where('contact_number', contactNum);
+        .where('contact_number', contactNum)
+        .orderBy("sent_at", "asc");
 }
 
 exports.insertNewContact = (newContact) => {
     const contactData = connection('contacts').insert(newContact).returning('*')
     const contactCheck = checkIfContactExists(newContact.contact_number)
-    return Promise.all([contactData, contactCheck]).then(([contactData, contactCheck]) => {
+    return Promise.all([contactCheck,contactData]).then(([contactCheck, contactData]) => {
         return contactData;
     })
 }

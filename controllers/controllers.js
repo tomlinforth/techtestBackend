@@ -5,26 +5,17 @@ const {
     insertNewContact
 } = require('../models/models');
 
-const MessagingResponse = require('twilio').twiml.MessagingResponse;
-
 exports.addNewMessage = (req, res, next) => {
     insertNewMessage(req.body)
     .then(([message]) => {
-            // const twiml = new MessagingResponse();
-            // console.log(req.body.Body)
-            // twiml.message('This is a test response');
-            // res.writeHead(201, {'Content-Type':'text/xml'})
-            // res.end(twiml.toString())
             res.set('content-type', 'text/xml').status(201).send();
         })
         .catch(next);
 };
 
 exports.sendAllContacts = (req,res,next) => {
-    console.log("controller start")
     selectAllContacts()
         .then(contacts => {
-            console.log('controller end')
             res.status(200).send({contacts});
         })
         .catch(next);
