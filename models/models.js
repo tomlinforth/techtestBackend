@@ -12,7 +12,7 @@ checkIfContactExists = (contactNum) => {
 
 exports.insertNewMessage = (newMessage) => {
     const messageData = {
-        contact_number: newMessage.To,
+        contact_number: newMessage.From == '+12286410309' ? newMessage.To : newMessage.From,
         to : newMessage.To, 
         from : newMessage.From, 
         body : newMessage.Body
