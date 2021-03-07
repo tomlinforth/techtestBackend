@@ -15,7 +15,7 @@ exports.addNewMessage = (req, res, next) => {
             // twiml.message('This is a test response');
             // res.writeHead(201, {'Content-Type':'text/xml'})
             // res.end(twiml.toString())
-            res.status(201).send({ message });
+            res.set('content-type', 'text/xml').status(201).send();
         })
         .catch(next);
 };
