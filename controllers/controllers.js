@@ -10,12 +10,12 @@ const MessagingResponse = require('twilio').twiml.MessagingResponse;
 exports.addNewMessage = (req, res, next) => {
     insertNewMessage(req.body)
     .then(([message]) => {
-            const twiml = new MessagingResponse();
-            console.log(req.body.Body)
-            twiml.message('This is a test response');
-            res.writeHead(201, {'Content-Type':'text/xml'})
-            res.end(twiml.toString())
-            // res.status(201).send({ message });
+            // const twiml = new MessagingResponse();
+            // console.log(req.body.Body)
+            // twiml.message('This is a test response');
+            // res.writeHead(201, {'Content-Type':'text/xml'})
+            // res.end(twiml.toString())
+            res.status(201).send({ message });
         })
         .catch(next);
 };
