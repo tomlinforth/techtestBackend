@@ -17,7 +17,6 @@ exports.insertNewMessage = (newMessage) => {
         from : newMessage.From, 
         body : newMessage.Body
     };
-    // console.log(messageData)
     return connection('messages')
         .insert(messageData)
         .returning('*');
