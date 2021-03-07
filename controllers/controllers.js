@@ -13,7 +13,7 @@ exports.addNewMessage = (req, res, next) => {
             const twiml = new MessagingResponse();
             console.log(req.body.Body)
             twiml.message('This is a test response');
-            res.writehead(201, {'Content-Type':'text/xml'})
+            res.writeHead(201, {'Content-Type':'text/xml'})
             res.end(twiml.toString())
             // res.status(201).send({ message });
         })
