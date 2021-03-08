@@ -21,9 +21,9 @@ exports.insertNewMessage = (newMessage) => {
     if(newMessage.From == '+12286410309') {
         return client.messages
         .create({
-            body: messageInp,
+            body: newMessage.Body,
             from: '+12286410309',
-            to: this.props.curContact
+            to: newMessage.To
         }).then(message => {
             return connection('messages')
             .insert(messageData)
