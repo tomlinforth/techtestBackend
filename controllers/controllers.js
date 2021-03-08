@@ -8,7 +8,7 @@ const {
 exports.addNewMessage = (req, res, next) => {
     insertNewMessage(req.body)
     .then(([message]) => {
-            res.set('content-type', 'text/xml').status(201).send();
+            res.set('content-type', 'text/xml').status(201).send('test auto response');
         })
         .catch(next);
 };
