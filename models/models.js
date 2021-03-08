@@ -1,7 +1,5 @@
 const connection = require("../db/connection");
-const accountSid = 'AC474d05a343981b3b30086e2ca14c136c';
-const authToken = 'f7af53a21d82107cf9b08c11b4e9b08b';
-const client = require('twilio')(accountSid, authToken);
+const client = require('twilio')(process.env.twilioSID, process.env.twilioTOK);
 
 checkIfContactExists = (contactNum) => {
     return connection('contacts')
